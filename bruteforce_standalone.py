@@ -55,7 +55,7 @@ def process_text(text):
 
 for x in tqdm.tqdm(rotors):
     cribtext = 'WHTBEDFU'
-    ciphertext = 'SYZXQQMJYYCUZRULDTENUMBIHC'
+    ciphertext = 'QLMSYQLZGAUCQEMGIKSNWIDHZMBURQPQ'
     # ciphertext = "YJPYITREDSYUPIUBWMFIUQFFRGMXTRNHU"
     # ciphertext = "MNWBYYPBKMDAXYJ"
     # cribtext = "THISXISXWORKING"

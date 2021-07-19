@@ -19,7 +19,7 @@ machine.set_display("UYT")
 msg_key = machine.process_text('SCC')
 print(msg_key)
 
-plaintext = "MNWBAUIDRUYZSUYLOKRT"
+plaintext = "MYPHRRKZGDODUGVQTBPF"
 # plaintext = 'THISXISXWORKING'
 ciphertext = machine.process_text(process_text(plaintext))
 print(ciphertext)
