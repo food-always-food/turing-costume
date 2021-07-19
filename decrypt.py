@@ -16,10 +16,10 @@ def process_text(text):
 
 machine.set_display("UYT")
 
-msg_key = machine.process_text('PWE')
+msg_key = machine.process_text('SCC')
 print(msg_key)
 
-plaintext = "Hello Prump! I love you! WHTBEDFU"
+plaintext = "MNWBAUIDRUYZSUYLOKRT"
 # plaintext = 'THISXISXWORKING'
 ciphertext = machine.process_text(process_text(plaintext))
 print(ciphertext)

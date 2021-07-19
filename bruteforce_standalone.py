@@ -36,7 +36,8 @@ def find_roto_start(rotor_choice, ciphertext, cribtext):
                 plaintext = machine.process_text(ciphertext)
                 # print(plaintext)
                 if cribtext in plaintext:
-                    print("Valid settings found!")                    
+                    print("Valid settings found!") 
+                    print(plaintext)                   
                     return rotor_choice, start_pos
                     break
     return rotor_choice, False
@@ -45,14 +46,19 @@ def process_text(text):
     regex = re.compile('[^a-zA-Z]')
     punc_free = regex.sub('', text)
     space_free = punc_free.replace(" ", "")
+    print(space_free.upper())
     return(space_free.upper())
+
+# def process_text(text):
+#     return text
     
 
 for x in tqdm.tqdm(rotors):
-    cribtext = 'Happy Days'
-    ciphertext = 'MNWBYYPBQRYTAXOPKKFIVRZLAZF'
-    ciphertext = "YJPYITREDSYUPIUBWMFIUQFFRGMXTRNHU"
-    cribtext = "THISXISXWORKING"
+    cribtext = 'WHTBEDFU'
+    ciphertext = 'SYZXQQMJYYCUZRULDTENUMBIHC'
+    # ciphertext = "YJPYITREDSYUPIUBWMFIUQFFRGMXTRNHU"
+    # ciphertext = "MNWBYYPBKMDAXYJ"
+    # cribtext = "THISXISXWORKING"
     test = find_roto_start(x,process_text(ciphertext),process_text(cribtext))
     if test[1] != False:
         print(test)
