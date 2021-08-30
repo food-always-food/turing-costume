@@ -1,6 +1,5 @@
 import tqdm, re
-ciphertext = "YJPYITREDSYUPIUBWMFIUQFFRGMXTRNHU"
-cribtext = "THISXISXWORKING"
+
 
 rotors = [ "I II III", "I II IV", "I II V", "I III II",
 "I III IV", "I III V", "I IV II", "I IV III",
@@ -34,7 +33,6 @@ def find_roto_start(rotor_choice, ciphertext, cribtext):
                 start_pos = rotor1 + rotor2 + rotor3
                 machine.set_display(start_pos)
                 plaintext = machine.process_text(ciphertext)
-                # print(plaintext)
                 if cribtext in plaintext:
                     print("Valid settings found!") 
                     print(plaintext)                   
@@ -46,19 +44,13 @@ def process_text(text):
     regex = re.compile('[^a-zA-Z]')
     punc_free = regex.sub('', text)
     space_free = punc_free.replace(" ", "")
-    print(space_free.upper())
-    return(space_free.upper())
+    # print(space_free.upper())
+    return(space_free.upper())    
 
-# def process_text(text):
-#     return text
-    
 
 for x in tqdm.tqdm(rotors):
-    cribtext = 'WHTBEDFU'
-    ciphertext = 'QLMSYQLZGAUCQEMGIKSNWIDHZMBURQPQ'
-    # ciphertext = "YJPYITREDSYUPIUBWMFIUQFFRGMXTRNHU"
-    # ciphertext = "MNWBYYPBKMDAXYJ"
-    # cribtext = "THISXISXWORKING"
+    cribtext = 'September Fourth, twenty twenty-one'
+    ciphertext = 'KVUQDLKLCBQXLVUOTCOMFFCSDWGXRNFRHFKNRMHUEZLMMXIWSOXUEPUD'
     test = find_roto_start(x,process_text(ciphertext),process_text(cribtext))
     if test[1] != False:
         print(test)
