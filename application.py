@@ -35,14 +35,14 @@ def result():
     req = request.form
     print(req)
     rotors = f"{req['r1']} {req['r2']} {req['r3']}"
-    result = encrypt.encryptMessage(req['text'],rotors)
+    result = encrypt.encryptMessage(f"Sept Fourth {req['text']}",rotors)
     intercepts.put({"intercept":result})
     # encrypt.encryptMessage()
     # result = "test"
     
     print(rotors)
     print(result)
-    return render_template("encode.html", result=result)
+    return render_template("encode.html", result=result, submitted=f"Sept Fourth {req['text']}")
 
 @app.route("/api/get-message", methods=["get"])
 def lookup():

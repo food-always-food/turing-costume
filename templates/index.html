@@ -5,61 +5,58 @@
   <div class="row">
     <div class="col-md">
       <br>
-      <h1 id="middle">Encode an Enigma Message</h1>
-      <p>This tool is based on Ian MacDonald's stock portfolio builder. Using his calculations, this system simplifies
-        things by using the stock symbol to capture the required financial data. The resulting score is Ian's score.
-      </p>
+      <h2 id="middle">Encode an Enigma Message</h1>
+      <p>The british cracked the Enigma code during WW2, use the below page to send an enigma encoded message and see if the BOMBE machine can crack it. </p>
     </div>
   </div>
   <div class="row">
     <div class="col-md">
       <form method="post" action="/encode">
-        <div class="form-group row">
-          <label for="r1" class="col-3 col-form-label">Rotor 1</label> 
-          <div class="col-3">
-            <select id="r1" name="r1" class="custom-select" required="required">
-              <option value="I">Rotor I</option>
-              <option value="II">Rotor II</option>
-              <option value="III">Rotor III</option>
-              <option value="IV">Rotor IV</option>
-              <option value="V">Rotor V</option>
-            </select>
-          </div>
-          <div class="col-3">
-            <select id="r2" name="r2" class="custom-select" required="required">
-              <option value="I">Rotor I</option>
-              <option value="II" selected="selected">Rotor II</option>
-              <option value="III">Rotor III</option>
-              <option value="IV">Rotor IV</option>
-              <option value="V">Rotor V</option>
-            </select>
-          </div>
-          <div class="col-3">
-            <select id="r3" name="r3" class="custom-select" required="required">
-              <option value="I">Rotor I</option>
-              <option value="II">Rotor II</option>
-              <option value="III" selected="selected">Rotor III</option>
-              <option value="IV">Rotor IV</option>
-              <option value="V">Rotor V</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="text" class="col-4 col-form-label">Text Field</label> 
-          <div class="col-8">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fa fa-address-card"></i>
-                </div>
-              </div> 
-              <input id="text" name="text" type="text" class="form-control">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-12">
+              <label for="r1">Rotor 1</label>
             </div>
           </div>
-        </div> 
+          <div class="row">
+            <div class="col-4">
+              <select id="r1" name="r1" class="custom-select" required="required">
+                <option value="I">Rotor I</option>
+                <option value="II">Rotor II</option>
+                <option value="III">Rotor III</option>
+                <option value="IV">Rotor IV</option>
+                <option value="V">Rotor V</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <select id="r2" name="r2" class="custom-select" required="required">
+                <option value="I">Rotor I</option>
+                <option value="II" selected="selected">Rotor II</option>
+                <option value="III">Rotor III</option>
+                <option value="IV">Rotor IV</option>
+                <option value="V">Rotor V</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <select id="r3" name="r3" class="custom-select" required="required">
+                <option value="I">Rotor I</option>
+                <option value="II">Rotor II</option>
+                <option value="III" selected="selected">Rotor III</option>
+                <option value="IV">Rotor IV</option>
+                <option value="V">Rotor V</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="text">Secret Message</label>
+          <textarea id="text" name="text" cols="40" rows="5" aria-describedby="textHelpBlock" required="required"
+            class="form-control"></textarea>
+          <span id="textHelpBlock" class="form-text text-muted">Enter your message to be encoded</span>
+        </div>
         <div class="form-group row">
           <div class="offset-4 col-8">
-            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            <button id="submit" name="submit" type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </form>
