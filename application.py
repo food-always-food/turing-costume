@@ -5,8 +5,8 @@ import simplejson as json
 
 intercepts = Queue()
 
-if getattr(sys, 'frozen', False):
-    template_folder = os.path.join(sys._MEIPASS, 'templates')
+if getattr(sys, "frozen", False):
+    template_folder = os.path.join(sys._MEIPASS, "templates")
     application = Flask(__name__, template_folder=template_folder)
 else:
     application = Flask(__name__)
@@ -16,6 +16,7 @@ application.config["SECRET_KEY"] = "1023912038109823aljksdflkajds"
 app = application
 
 # intercepts.put({"intercept":"ELCSDBAJDEIHYIJGSBBNGURMSKZPLFDHJIDQRQSQNTUGHJFCXKIPAUXYFVPIYEHHIVGAE"})
+
 
 @app.route("/", methods=["GET"])
 def welcome():
@@ -35,14 +36,17 @@ def result():
     req = request.form
     print(req)
     rotors = f"{req['r1']} {req['r2']} {req['r3']}"
-    result = encrypt.encryptMessage(f"Sept Fourth {req['text']}",rotors)
-    intercepts.put({"intercept":result})
+    result = encrypt.encryptMessage(f"Sept Fourth {req['text']}", rotors)
+    intercepts.put({"intercept": result})
     # encrypt.encryptMessage()
     # result = "test"
-    
+
     print(rotors)
     print(result)
-    return render_template("encode.html", result=result, submitted=f"Sept Fourth {req['text']}")
+    return render_template(
+        "encode.html", result=result, submitted=f"Sept Fourth {req['text']}"
+    )
+
 
 @app.route("/api/get-message", methods=["get"])
 def lookup():
