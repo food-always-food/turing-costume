@@ -1,6 +1,6 @@
 from flask import render_template, session, request, redirect, Flask
 from queue import Queue
-import sys, os, encrypt
+import sys, os, encrypt, re
 import simplejson as json
 
 intercepts = Queue()
