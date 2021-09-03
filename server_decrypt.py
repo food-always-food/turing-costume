@@ -1,4 +1,4 @@
-import  re, requests
+import  re
 from time import sleep
 
 rotors = [
