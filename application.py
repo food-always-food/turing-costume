@@ -17,6 +17,11 @@ app = application
 
 # intercepts.put({"intercept":"ELCSDBAJDEIHYIJGSBBNGURMSKZPLFDHJIDQRQSQNTUGHJFCXKIPAUXYFVPIYEHHIVGAE"})
 
+def clean_text(text):
+    regex = re.compile("[^a-zA-Z]")
+    punc_free = regex.sub("", text)
+    space_free = punc_free.replace(" ", "")
+    return space_free.upper()
 
 @app.route("/", methods=["GET"])
 def welcome():
@@ -37,7 +42,7 @@ def result():
     print(req)
     rotors = f"{req['r1']} {req['r2']} {req['r3']}"
     result = encrypt.encryptMessage(f"Sept Fourth {req['text']}", rotors)
-    intercepts.put({"intercept": result})
+    intercepts.put({"intercept": result, "plaintext":clean_text(f"Sept Fourth {req['text']}")})
     # encrypt.encryptMessage()
     # result = "test"
 
