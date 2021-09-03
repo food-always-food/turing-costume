@@ -54,8 +54,8 @@ def lookup():
 @app.route("/api/decode", methods=["POST"])
 def decode():
     req = request.form
-    print(req['intercept'])
-    intercepts.put(req['intercept'] )
+    # print(req['inte)
+    # # intercepts.put(req['intercept'] )
     result = server_decrypt.solveText(req['intercept'])
     return json.dumps(result)
 
