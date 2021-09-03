@@ -6,7 +6,7 @@ printer = Adafruit_Thermal("/dev/serial0", 19200, timeout=5)
 
 count = 0
 
-while True:
+while count < 5:
     url = "http://enigma.thompsongroup.io/api/get-message"
     response = requests.get(url=url)
     data = response.json()
@@ -18,13 +18,12 @@ while True:
         printer.feed(1)
         printer.justify('L')
         printer.println(data['plaintext'])
+        printer.feed(1)
         printer.inverseOn()
         printer.justify('C')
         printer.println("   End Intercept   ")
         printer.inverseOff()
-        print(data['plaintext'])
-        print("show the counter")
-        print("Print the message")
+        printer.feed(2)
     sleep(10)
     print("sleeping")
     print(count)
