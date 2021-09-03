@@ -25,15 +25,7 @@ def clean_text(text):
 
 @app.route("/", methods=["GET"])
 def welcome():
-    if request.method == "POST":
-        req = request.form
-        print(req)
-        result = iexStocks.getFinancials(req["symbol"].upper(), req["pe"])
-        print(result)
-        session["result"] = result
-        return render_template("index.html")
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
 
 
 @app.route("/encode", methods=["POST"])
@@ -45,7 +37,6 @@ def result():
     intercepts.put({"intercept": result, "plaintext":clean_text(f"Sept Fourth {req['text']}")})
     # encrypt.encryptMessage()
     # result = "test"
-
     print(rotors)
     print(result)
     return render_template(
