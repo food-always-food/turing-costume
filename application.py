@@ -1,6 +1,6 @@
 from flask import render_template, session, request, redirect, Flask
 from queue import Queue
-import sys, os, encrypt, re
+import sys, os, encrypt, re, server_decrypt
 import simplejson as json
 
 intercepts = Queue()
@@ -60,6 +60,13 @@ def lookup():
     else:
         return json.dumps(intercepts.get())
 
+@app.route("/api/decode", methods=["POST"])
+def lookup():
+    req = request.form
+    print(req['intercept'])
+    intercepts.put(req['intercept'] )
+    result = server_decrypt.solveText(req['intercept'])
+    return json.dumps(result)
 
 if __name__ == "__main__":
     application.run(debug=True)
