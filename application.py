@@ -61,7 +61,7 @@ def lookup():
         return json.dumps(intercepts.get())
 
 @app.route("/api/decode", methods=["POST"])
-def lookup():
+def decode():
     req = request.form
     print(req['intercept'])
     intercepts.put(req['intercept'] )
