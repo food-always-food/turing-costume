@@ -51,13 +51,13 @@ def lookup():
     else:
         return json.dumps(intercepts.get())
 
-# @app.route("/api/decode", methods=["POST"])
-# def decode():
-#     req = request.form
-#     print(req['intercept'])
-#     intercepts.put(req['intercept'] )
-#     result = server_decrypt.solveText(req['intercept'])
-#     return json.dumps(result)
+@app.route("/api/decode", methods=["POST"])
+def decode():
+    req = request.form
+    print(req['intercept'])
+    intercepts.put(req['intercept'] )
+    result = server_decrypt.solveText(req['intercept'])
+    return json.dumps(result)
 
 if __name__ == "__main__":
     application.run(debug=True)

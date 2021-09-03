@@ -1,4 +1,4 @@
-import tqdm, re, requests
+import  re, requests
 from time import sleep
 
 rotors = [
@@ -99,7 +99,7 @@ def process_text(text):
 
 
 def solveText(ciphertext):
-    for x in tqdm.tqdm(rotors):
+    for x in rotors:
         cribtext = "Sept Fourth"
         test = find_roto_start(x, process_text(ciphertext), process_text(cribtext))
         if test[1] != False:
